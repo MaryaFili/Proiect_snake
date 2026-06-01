@@ -26,7 +26,7 @@ void matrice(SNAKE *s, PUNCT mancare);
 void free_memorie(SNAKE *s);
 void initSnake(SNAKE *s);
 void generaremancare(PUNCT *mancare, SNAKE*s);
-void taste(SNAKE *s);
+void taste(SNAKE *s, int *GAMEON);
 void logica(SNAKE *s,PUNCT *mancare, int *GAMEON);
 
 #endif /* snake_h */

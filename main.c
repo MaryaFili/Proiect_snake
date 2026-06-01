@@ -16,21 +16,20 @@ int main()
     system("cls");
     printTitle();
     Sleep(2000);
-    system("cls");
     SNAKE snake;
     PUNCT mancare;
     int GAMEON=1;
     setup(&snake, &mancare);
     while(GAMEON)
     {
-        system("cls");
         matrice(&snake, mancare);
-        taste(&snake);
+        taste(&snake,&GAMEON);
         logica(&snake, &mancare, &GAMEON);
-        Sleep(100);
+        Sleep(150);
     }
     free_memorie(&snake);
     system("cls");
+    printf("\t\t\033[1;33m SCORUL:%d\033[0m\n",snake.scorul);
     printf("\t\t\033[1;31m GAME OVER! \033[0m\n");
     return 0;
 }

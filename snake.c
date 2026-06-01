@@ -65,8 +65,7 @@ void matrice(SNAKE *s,PUNCT mancare){
         for (i=0;i<COLOANE+2;i++)
         printf("-");
         printf("\n");
-        printf(SCORE_COLOR "Scor: %d\n" "\033[0m", s->scorul);
-        printf("\033[0m"); // Resetare culoare;
+        printf(SCORE_COLOR "Scor: %d\n\033[0m", s->scorul);
         printf("Control: W (sus), A (stanga), S (jos), D (dreapta), X(pentru a iesi)\n");
 }
 void initSnake(SNAKE *s) {
@@ -99,9 +98,8 @@ void generaremancare(PUNCT *mancare, SNAKE *s) {
         }
     }
 }
-    printf("Mâncare generată la poziția (%d, %d)\n", mancare->x, mancare->y);
 }
-void taste(SNAKE *s)
+void taste(SNAKE *s,int *GAMEON)
 {
     if(_kbhit())
     {
@@ -133,7 +131,7 @@ void taste(SNAKE *s)
             break;
             case 'x':
             {
-                s->directia_actuala=stop;
+                *GAMEON=0;
             }
             break;
         }
@@ -179,12 +177,16 @@ void logica(SNAKE *s, PUNCT *mancare, int *GAMEON)
             *GAMEON=0;
         }
     }
-    if((s->corp[0].x<=0) || (s->corp[0].x>=COLOANE) || (s->corp[0].y<0 || s->corp[0].y>=LINII))
+    if(s->corp[0].x<=0 || s->corp[0].x>=COLOANE || s->corp[0].y<0 || s->corp[0].y>=LINII)
     {
         *GAMEON=0;
     }
     if((s->corp[0].x==mancare->x) && (s->corp[0].y==mancare->y))
     {
+        if(s->corp[0].x==poz_anterioara.x && s->corp[0].y==poz_anterioara.y)
+        {
+            *GAMEON=0;
+        }
         s->scorul+=5;
         if(s->lungime_actuala==s->capacitate)
         {
