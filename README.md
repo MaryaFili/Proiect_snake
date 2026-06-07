@@ -28,3 +28,4 @@ cu 1, iar scorul va fi incrementat.
 Auto-coliziune: Verificarea dacă capul a lovit marginea 
 sau orice segment al corpului său, ceea ce va duce la 
 Game Over.
+Modul de a juca: Apeși oricare dintre tastele A,S,D,W, respectiv X(daca se dorește ieșirea din joc); Punctul verde(care reprezintă șarpele), $-reprezintă mâncarea; Rolul acestui joc este ca șarpele să mănânce cât mai mult, fără să se izbească de pereții matricei sau de propriul corp.
